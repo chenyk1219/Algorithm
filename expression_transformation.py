@@ -34,4 +34,3 @@ def expression_transformation(expressions: str):
 
 
 expression_transformation("A * B + C * D")
-
