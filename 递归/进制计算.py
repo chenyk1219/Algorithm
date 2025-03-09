@@ -1,3 +1,9 @@
+import sys
+
+sys.getrecursionlimit()
+sys.setrecursionlimit(300)
+
+
 def jzzh(base, num):
     cs = "0123456789ABCDEF"
     if num < base:
@@ -6,4 +12,4 @@ def jzzh(base, num):
         return jzzh(base, num // base) + cs[num % base]
 
 
-print(jzzh(16, 10))
+print(jzzh(2, 1 << 21))
