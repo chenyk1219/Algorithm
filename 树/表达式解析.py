@@ -44,7 +44,6 @@ def buildParseTree(fpexp: str):
     pStack.push(eTree)
     currentTree = eTree
     for i in fplist:
-        print(i)
         if i == '(':
             currentTree.insertLeft('')
             pStack.push(currentTree)
@@ -79,9 +78,19 @@ def evaluate(node):
         return node.getRootVal()
 
 
+def printexp(tree: BinaryTree):
+    sVal = ''
+    if tree:
+        sVal = '(' + printexp(tree.getLeftChild())
+        sVal = sVal + str(tree.getRootVal())
+        sVal = sVal + printexp(tree.getRightChild()) + ')'
+    return sVal
+
+
 s = "( ( 3 + 4 ) * 2 )"
 eTree = buildParseTree(s)
 s1 = evaluate(eTree)
 print(s1)
+print(printexp(eTree))
 # print(eTree.getRootVal())
 # print(eTree.getRightChild().getRightChild().getRootVal())
